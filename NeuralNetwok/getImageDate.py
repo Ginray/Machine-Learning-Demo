@@ -11,6 +11,10 @@ class ImageData:
 
     # 二值化
     def point(self, z=80):
+        # 如果要使用其他阈值，可以使用方法image.point()
+        '''
+        lambda 表达式，通常是在需要一个函数，但是又不想费神去命名一个函数的场合下使用，也就是指匿名函数。
+        '''
         return self.image.point(lambda x: 1. if x > z else 0.)
 
     # 将二值化后的数组转化成网格特征统计图
@@ -29,10 +33,12 @@ class ImageData:
         return np.asarray(data)
 
     def getData(self, num):
+        img_array = np.asarray(self.image)
+        print img_array
         img = self.point()
         # 将图片转换为数组形式，元素为其像素的亮度值
         img_array = np.asarray(img)
         # 得到网格特征统计图
         features_array = self.get_features(img_array, num)
-        # print features_array
+        print features_array
         return features_array.reshape(features_array.shape[0] * features_array.shape[1])
