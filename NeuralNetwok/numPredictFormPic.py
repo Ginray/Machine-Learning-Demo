@@ -38,13 +38,13 @@ labels_train = LabelBinarizer().fit_transform(y_train)
 ###########构造神经网络模型################
 #构建神经网络结构
 #因为构造出的图片是14*14的 所以NeuralNetwork的第一个参数是14*14 不然矩阵相乘会错误
-nn = NeuralNetwork([14*14, 100, 10], 'logistic')
+nn = NeuralNetwork([14*14, 100,40, 10], 'logistic')
 #训练模型
-# nn.fit(X_train, labels_train, learning_rate=0.2, epochs=100)
+nn.fit(X_train, labels_train, learning_rate=0.2, epochs=100)
 #保存模型
-# joblib.dump(nn, 'model/nnModel.m')
+joblib.dump(nn, 'model/nnModel.m')
 #加载模型
-nn = joblib.load('model/nnModel.m')
+# nn = joblib.load('model/nnModel.m')
 
 
 ###############数字识别####################

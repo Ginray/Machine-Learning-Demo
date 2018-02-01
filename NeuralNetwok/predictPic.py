@@ -5,8 +5,8 @@ from PIL import Image
 import numpy as np
 
 # image = input('input image path\n')
-# image = r'C:\Users\ciabok\Desktop\3.jpg'
-image = raw_input('please input image path\n')
+image = r'C:\Users\ciabok\Desktop\2.bmp'
+# image = raw_input('please input image path\n')
 
 im = Image.open(image).convert("L")
 im = im.resize((28,28))
