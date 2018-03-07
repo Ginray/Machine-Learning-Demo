@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from matplotlib import pylab as plt
 from sklearn import datasets
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score,classification_report
 
 # 测试数据
 iris = datasets.load_iris()
@@ -38,8 +38,8 @@ print(pred)
 
 # 方法1
 accuracy = clf.score(features_test, labels_test)
-print 'accuracy1=', accuracy
+print 'accuracy1', accuracy
 
 # 方法2
-accuracy2 = accuracy_score(pred, labels_test)
-print 'accuracy2=', accuracy2
+cr = classification_report(pred, labels_test)
+print 'classification_report=\n', cr
